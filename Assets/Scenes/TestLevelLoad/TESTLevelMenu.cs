@@ -5,18 +5,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class TESTLevelMenu : MonoBehaviour
 {
     [SerializeField] RectTransform _container;
     [SerializeField] Button _buttonTemplate;
     [HideInInspector][SerializeField] string[] _levelIds;
-
+    
     private Button[] _buttons;
 
     private void CreateButtons()
     {
         _buttons = _levelIds.Select(id => Instantiate(_buttonTemplate, _container)).ToArray();
+        LevelManager.levelsByName = _levelIds.ToList();
         for (var i = 0; i < _buttons.Length; i++)
         {
             var button = _buttons[i];
@@ -40,7 +42,7 @@ public class TESTLevelMenu : MonoBehaviour
     {
         _levelIds = _levelAssets
             .Select(scene => scene.name)
-            .ToArray();
+            .ToArray();        
     }
 #endif
 }
