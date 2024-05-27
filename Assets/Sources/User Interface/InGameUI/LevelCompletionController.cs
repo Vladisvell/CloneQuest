@@ -10,17 +10,20 @@ public class LevelCompletionController : MonoBehaviour, ILevelFinishHandler, ILe
     [SerializeField] TextMeshProUGUI _levelText;
     [SerializeField] List<GameObject> stars;
     [SerializeField] GameObject levelCompletionScreen;
-    
+
     private LevelContext _levelContext;
     private int _gainedStars = 0;
 
 
     public void OnLevelFinish()
     {
-        levelCompletionScreen.SetActive(true);
-        for(int i = 0; i < Math.Min(stars.Count, _gainedStars); i++)
+        if (levelCompletionScreen != null)
         {
-            stars[i].SetActive(true);
+            levelCompletionScreen.SetActive(true);
+            for (int i = 0; i < Math.Min(stars.Count, _gainedStars); i++)
+            {
+                stars[i].SetActive(true);
+            }
         }
     }
 
@@ -28,6 +31,7 @@ public class LevelCompletionController : MonoBehaviour, ILevelFinishHandler, ILe
     {
         _levelContext = levelContext;
         _levelText.text = $"спнбемэ {_levelContext.Id}";
+        _gainedStars = 0;
     }
 
     public void OnSoftResetEnd()
@@ -39,7 +43,7 @@ public class LevelCompletionController : MonoBehaviour, ILevelFinishHandler, ILe
     {
         _gainedStars++;
     }
-    
+
     void Start()
     {
         Subscribe();
@@ -69,6 +73,6 @@ public class LevelCompletionController : MonoBehaviour, ILevelFinishHandler, ILe
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

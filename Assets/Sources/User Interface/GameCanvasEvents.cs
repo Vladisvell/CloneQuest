@@ -19,7 +19,7 @@ public class GameCanvasEvents : MonoBehaviour, ILevelSoftResetEndHandler, ILevel
     {
         if (!_levelCompletionScreen.gameObject.activeInHierarchy)
         {
-            _levelCompletionScreen.SetActive(true);
+            //_levelCompletionScreen.SetActive(true);
             PersistentLevelData.LevelStars[PersistentLevelData.CurrentLevel] =
                 PersistentLevelData.LevelStars[PersistentLevelData.CurrentLevel] <
                 _levelProgressTracker.StarCount ?
