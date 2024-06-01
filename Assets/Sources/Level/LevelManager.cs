@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public static class LevelManager
 {
-    static public List<string> levelsByName;
+    static public List<string> levelsByName;// TODO REMOVE
 
     public static void Load(LevelContext levelContext)
     {
@@ -18,7 +17,7 @@ public static class LevelManager
             EventBus.Invoke<ILevelLoadHandler>((obj) => obj.OnLevelLoad(levelContext));
         }
     }
-
+    // TODO REMOVE \/
     public static void LoadNext(LevelContext levelContext)
     {
         if (levelContext == null)
@@ -45,4 +44,6 @@ public static class LevelManager
             LevelManager.Load(context);
         }
     }
+    // TODO REMOVE /\
+
 }
