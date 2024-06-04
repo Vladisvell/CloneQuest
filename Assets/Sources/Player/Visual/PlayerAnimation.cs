@@ -10,6 +10,7 @@ public class PlayerAnimation : MonoBehaviour, ILevelSoftResetStartHandler
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] Animator _animator;
 
+    const string _resetTrigger = "Reset";
     const string _moveVelocityKey = "Move";
     const string _airVelocityKey = "Air";
     const string _groundKey = "OnGround";
@@ -19,6 +20,7 @@ public class PlayerAnimation : MonoBehaviour, ILevelSoftResetStartHandler
 
     private bool _isDead = false;
 
+    public void ResetAnimation() { _animator.SetTrigger(_resetTrigger); _isDead = false; }
     public void ChangeMoveVelocity(float velocity) => _animator.SetFloat(_moveVelocityKey, MathF.Abs(velocity));
     public void ChangeAirVelocity(float velocity) => _animator.SetFloat(_airVelocityKey, velocity);
     public void ChangeDirection(int direction) => UpdateDirection(direction);
