@@ -1,22 +1,23 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
-public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelSoftResetStartHandler, ILevelReadyHandler, ILevelStartHandler, IPauseToggleHandler, ILevelReloadHandler,
-    IBeforeLevelUnloadHandler
+public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelReadyHandler, ILevelStartHandler,
+                                        ILevelSoftResetStartHandler, IPauseHandler, ILevelFinishHandler,
+                                        ILevelRestartHandler, ILevelMenuLoadHandler, ILevelLoadNextHandler
+
 {
     [SerializeField] private int _maxClones;
     [SerializeField] private GameObject _clonePrefab;
-    [SerializeField] private GameCanvasEvents _gameCanvas;
+    [SerializeField] private GameCanvas _gameCanvas;
 
     private LevelContext _levelContext;
     private RecordingPlayerInput _playerInput;
     private CloneSystem _cloneSystem;
     private PlayerActions _input;
-    private bool _pause;
+    private StarCounter _stars;
 
     public void OnLevelLoad(LevelContext levelContext)
     {
@@ -30,12 +31,13 @@ public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelSoftResetStartH
         var playerFinisher = playerControls.GetComponent<LevelFinisher>();
         _playerInput = new RecordingPlayerInput(playerControls);
         _cloneSystem = new CloneSystem(_playerInput, _clonePrefab, playerControls.transform.position, _maxClones);
+        _stars = new();
 
         _input = new PlayerActions();
         _input.Game.Clone.started += (ctx) => { _cloneSystem.AddCloneAndRestart(); };
         _input.Game.Undo.started += (ctx) => { _cloneSystem.Restart(); };
         _input.Game.Restart.started += (ctx) => { OnLevelRestart(); };
-        _input.Game.Esc.started += (ctx) => { TogglePause(); };
+        _input.Game.Esc.started += (ctx) => { _gameCanvas.ShowPauseMenu(); };
         _input.Game.Enable();
 
         _gameCanvas.Init(_cloneSystem);
@@ -58,32 +60,26 @@ public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelSoftResetStartH
     public void OnLevelReady()
     {
         _input.Game.Move.actionMap.actionTriggered += OnAnyButtonPressed;
-        if (_pause) { TogglePause(); }
     }
 
-    private void OnAnyButtonPressed(CallbackContext ctx) => EventBus.Invoke<ILevelStartHandler>(obj => obj.OnLevelStart());
+    private void OnAnyButtonPressed(CallbackContext ctx) { EventBus.Invoke<ILevelStartHandler>(obj => obj.OnLevelStart()); }
 
     public void OnLevelStart()
     {
         _input.Game.Move.actionMap.actionTriggered -= OnAnyButtonPressed;
         _cloneSystem.Start();
-        if (_pause) { TogglePause(); }
     }
-
-    public void OnLevelRestart()
+    public void OnLevelRestart() { LevelManager.Load(_levelContext); }
+    public void OnLoadMenu() { LevelManager.LoadMenu(_levelContext); }
+    public void OnLevelFinish()
     {
-        LevelManager.Load(_levelContext);
-        if (_pause) { TogglePause(); }
+        // TODO Save
+        _gameCanvas.ShowLevelCompleteMenu(_levelContext.Index + 1, _stars.Count);
     }
+    public void OnLoadNext() { if (_levelContext.IsLast) { LevelManager.LoadMenu(_levelContext); } else { LevelManager.Load(_levelContext.Next); } }
 
-    public void OnPauseToggled() => TogglePause();
-
-    private void TogglePause()
-    {
-        Time.timeScale = _pause ? 1f : 0f;
-        _pause = !_pause;
-        // TODO Disable inputs
-    }
+    public void OnPause() { DisableInput(); }
+    public void OnResume() { EnableInput(); }
 
     public void OnSoftResetStart(float duration)
     {
@@ -102,20 +98,25 @@ public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelSoftResetStartH
         EventBus.Subscribe<ILevelReadyHandler>(this);
         EventBus.Subscribe<ILevelStartHandler>(this);
         EventBus.Subscribe<ILevelSoftResetStartHandler>(this);
-        EventBus.Subscribe<IPauseToggleHandler>(this);
-        EventBus.Subscribe<ILevelReloadHandler>(this);
-        EventBus.Subscribe<IBeforeLevelUnloadHandler>(this);
+        EventBus.Subscribe<IPauseHandler>(this);
+        EventBus.Subscribe<ILevelFinishHandler>(this);
+        EventBus.Subscribe<ILevelRestartHandler>(this);
+        EventBus.Subscribe<ILevelMenuLoadHandler>(this);
+        EventBus.Subscribe<ILevelLoadNextHandler>(this);
     }
 
     private void Unsubscribe()
     {
         _input.Dispose();
+        EventBus.Unsubscribe<ILevelLoadHandler>(this);
         EventBus.Unsubscribe<ILevelReadyHandler>(this);
         EventBus.Unsubscribe<ILevelStartHandler>(this);
         EventBus.Unsubscribe<ILevelSoftResetStartHandler>(this);
-        EventBus.Unsubscribe<IPauseToggleHandler>(this);
-        EventBus.Unsubscribe<ILevelReloadHandler>(this);
-        EventBus.Unsubscribe<IBeforeLevelUnloadHandler>(this);
+        EventBus.Unsubscribe<IPauseHandler>(this);
+        EventBus.Unsubscribe<ILevelFinishHandler>(this);
+        EventBus.Unsubscribe<ILevelRestartHandler>(this);
+        EventBus.Unsubscribe<ILevelMenuLoadHandler>(this);
+        EventBus.Unsubscribe<ILevelLoadNextHandler>(this);
     }
 
     private void Awake() => Subscribe();
@@ -139,10 +140,6 @@ public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelSoftResetStartH
     {
         EventBus.Invoke<IBeforeLevelUnloadHandler>(obj => obj.OnBeforeLevelUnload());
         Unsubscribe();
-    }
-
-    public void OnBeforeLevelUnload()
-    {
-        if (_pause) { TogglePause(); }
+        Pause.Set(false);
     }
 }
