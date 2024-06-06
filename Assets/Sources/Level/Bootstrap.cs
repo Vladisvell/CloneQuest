@@ -74,7 +74,7 @@ public class Bootstrap : MonoBehaviour, ILevelLoadHandler, ILevelReadyHandler, I
         _input.Game.Move.actionMap.actionTriggered -= OnAnyButtonPressed;
         _cloneSystem.Start();
     }
-    public void OnLevelRestart() { LevelManager.Load(_levelContext); }
+    public void OnLevelRestart() { DisableInput(); LevelManager.Load(_levelContext); }
     public void OnLoadMenu() { LevelManager.LoadMenu(_levelContext); }
     public void OnLevelFinish()
     {

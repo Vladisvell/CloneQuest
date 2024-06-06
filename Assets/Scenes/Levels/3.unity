@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1240018460044777477, guid: f1034cd07ba6a934da1561ccf5b18359, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -5.99
       objectReference: {fileID: 0}
     - target: {fileID: 1240018460044777477, guid: f1034cd07ba6a934da1561ccf5b18359, type: 3}
       propertyPath: m_LocalPosition.z
@@ -197,10 +197,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 520402589}
     m_Modifications:
-    - target: {fileID: -7515901240076514318, guid: f1034cd07ba6a934da1561ccf5b18359, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1075428904952232739, guid: f1034cd07ba6a934da1561ccf5b18359, type: 3}
       propertyPath: m_Name
       value: Block (2)
@@ -211,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1240018460044777477, guid: f1034cd07ba6a934da1561ccf5b18359, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 1240018460044777477, guid: f1034cd07ba6a934da1561ccf5b18359, type: 3}
       propertyPath: m_LocalPosition.z
@@ -305,7 +301,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 3.75, y: -0.25, z: 0}
+    - position: {x: 3.7, y: -0.25, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -313,7 +309,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 2
-    - position: {x: 3.75, y: -3.5, z: 0}
+    - position: {x: 3.7, y: -3.5, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -338,11 +334,11 @@ MonoBehaviour:
   m_Creator: {fileID: 0}
   m_Modifiers: []
   m_ColliderSegment:
-  - {x: -2.8362207, y: -3.9761448}
-  - {x: -2.8362212, y: 2.7424335}
-  - {x: 4.2509766, y: 0.09716797}
-  - {x: 4.25, y: -4.001816}
-  - {x: -2.8362207, y: -3.9761448}
+  - {x: -2.8362215, y: -3.9761298}
+  - {x: -2.8362212, y: 2.7444715}
+  - {x: 4.1992188, y: 0.096191406}
+  - {x: 4.2, y: -4.0018315}
+  - {x: -2.8362215, y: -3.9761298}
 --- !u!1971053207 &494790644
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -405,8 +401,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
   - {fileID: 21300000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.7073777, y: -0.6296911, z: 0}
-    m_Extent: {x: 3.5435991, y: 3.3721247, z: 0}
+    m_Center: {x: 0.6818893, y: -0.62868, z: 0}
+    m_Extent: {x: 3.5181108, y: 3.3731515, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &494790645
 Transform:
@@ -467,11 +463,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.8362207, y: -3.9761448}
-      - {x: -2.8362212, y: 2.7424335}
-      - {x: 4.2509766, y: 0.09716797}
-      - {x: 4.25, y: -4.001816}
-      - {x: -2.8362207, y: -3.9761448}
+    - - {x: -2.8362215, y: -3.9761298}
+      - {x: -2.8362212, y: 2.7444715}
+      - {x: 4.1992188, y: 0.096191406}
+      - {x: 4.2, y: -4.0018315}
+      - {x: -2.8362215, y: -3.9761298}
   m_UseDelaunayMesh: 0
 --- !u!1001 &500843763
 PrefabInstance:
@@ -899,7 +895,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
@@ -1022,7 +1018,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -3.75, y: 0.25, z: 0}
+    - position: {x: -3.7, y: 0.25, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1030,7 +1026,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -3.75, y: 1.5, z: 0}
+    - position: {x: -3.7, y: 1.5, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1038,7 +1034,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 6.5, y: 1.5, z: 0}
+    - position: {x: 7, y: 1.5, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1046,7 +1042,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 6.5, y: 0.25, z: 0}
+    - position: {x: 7, y: 0.25, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -1071,11 +1067,11 @@ MonoBehaviour:
   m_Creator: {fileID: 0}
   m_Modifiers: []
   m_ColliderSegment:
-  - {x: -4.216001, y: -0.21599998}
-  - {x: -4.216, y: 1.9660001}
-  - {x: 6.966001, y: 1.9660001}
-  - {x: 6.9659996, y: -0.2160001}
-  - {x: -4.216001, y: -0.21599998}
+  - {x: -4.166001, y: -0.21599998}
+  - {x: -4.166, y: 1.9660001}
+  - {x: 7.4660006, y: 1.9660001}
+  - {x: 7.4659996, y: -0.21600007}
+  - {x: -4.166001, y: -0.21599998}
 --- !u!1971053207 &1054627282
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -1138,8 +1134,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
   - {fileID: 21300000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
   m_LocalAABB:
-    m_Center: {x: 1.375, y: 0.8749999, z: 0}
-    m_Extent: {x: 5.625001, y: 1.125, z: 0}
+    m_Center: {x: 1.6500001, y: 0.8749999, z: 0}
+    m_Extent: {x: 5.850001, y: 1.125, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &1054627283
 Transform:
@@ -1200,11 +1196,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -4.216001, y: -0.21599998}
-      - {x: -4.216, y: 1.9660001}
-      - {x: 6.966001, y: 1.9660001}
-      - {x: 6.9659996, y: -0.2160001}
-      - {x: -4.216001, y: -0.21599998}
+    - - {x: -4.166001, y: -0.21599998}
+      - {x: -4.166, y: 1.9660001}
+      - {x: 7.4660006, y: 1.9660001}
+      - {x: 7.4659996, y: -0.21600007}
+      - {x: -4.166001, y: -0.21599998}
   m_UseDelaunayMesh: 0
 --- !u!1 &1101012361
 GameObject:

@@ -376,9 +376,9 @@ Transform:
   - {fileID: 896281065}
   - {fileID: 1309820998}
   - {fileID: 845059357}
-  - {fileID: 521635314}
   - {fileID: 190513533}
   - {fileID: 522415637}
+  - {fileID: 521635314}
   - {fileID: 2134464592}
   - {fileID: 1845223731}
   - {fileID: 164582611}
@@ -395,30 +395,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 520402589}
     m_Modifications:
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.5058824
-      objectReference: {fileID: 0}
     - target: {fileID: 2171503882930512976, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
       propertyPath: m_Name
       value: MovingPlatform (1)
@@ -481,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917361029471772483, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -688,7 +664,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -2, y: 2, z: 0}
+    - position: {x: -1.9949741, y: 2.0959759, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -696,7 +672,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 6, y: 2, z: 0}
+    - position: {x: 6.005026, y: 2.0959759, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -791,8 +767,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
   - {fileID: 21300000, guid: 2b8a6ccea91abff48b3da1b0d88cc790, type: 3}
   m_LocalAABB:
-    m_Center: {x: 2.0000002, y: -0.5, z: 0}
-    m_Extent: {x: 4.5000005, y: 3.0000002, z: 0}
+    m_Center: {x: 2.0025136, y: -0.45201206, z: 0}
+    m_Extent: {x: 4.5030065, y: 3.0479882, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &658798976
 Transform:
@@ -2691,30 +2667,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 520402589}
     m_Modifications:
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.5058824
-      objectReference: {fileID: 0}
     - target: {fileID: 2171503882930512976, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
       propertyPath: m_Name
       value: MovingPlatform (2)
@@ -2777,7 +2729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917361029471772483, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3194,30 +3146,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 520402589}
     m_Modifications:
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0.5058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0.50980395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225049382414218100, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.5058824
-      objectReference: {fileID: 0}
     - target: {fileID: 2171503882930512976, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
       propertyPath: m_Name
       value: MovingPlatform (3)
@@ -3280,7 +3208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917361029471772483, guid: dc72ab650dbf2d84c834703268f310b0, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
